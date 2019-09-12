@@ -6,9 +6,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+/*
+ * This class will clear the user name and password stored globally*/
 @WebServlet(urlPatterns = "/logout.do")
 public class LogOut extends SubmitEdits{
+	/*
+	 * This Method will clear user name and password*/
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws IOException, ServletException {

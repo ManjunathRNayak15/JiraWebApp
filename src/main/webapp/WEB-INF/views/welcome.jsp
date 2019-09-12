@@ -65,6 +65,7 @@
     </style>
   </head>
 <body class="w3-light-grey">
+<p style="text-align:center;"><font color='green' ><b>${successMessage}</b></font></p>
 
 <!-- w3-content defines a container for fixed size centered content, 
 and is wrapped around the whole page content, except for the footer in this example -->
@@ -140,10 +141,10 @@ and is wrapped around the whole page content, except for the footer in this exam
 <div class="w3-col l4">
   <!-- About Card -->
   <div class="w3-card w3-margin w3-margin-top">
-  <img src="/w3images/avatar_g.jpg" style="width:100%">
+  <img src="https://itplus.ae/wp-content/uploads/2018/08/Stack@2x.png" style="width:100%">
     <div class="w3-container w3-white">
       <h4><b>Our Works</b></h4>
-      <p>We are now a well known atlassian platinum solution partners.
+      <p>We are a well known atlassian platinum solution partners.
       </p>
     </div>
   </div><hr>

@@ -6,7 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/*
+ * This class connected to login page*/
 @WebServlet(urlPatterns = "/login.do")
 public class TestLoginServlet extends HttpServlet {
 	@Override
@@ -15,6 +16,9 @@ public class TestLoginServlet extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request,response);
 		
 	}
+	/*
+	 * This Method will connect to login page and retrieves user name 
+	 * and password and sends it for verification*/
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws IOException, ServletException {

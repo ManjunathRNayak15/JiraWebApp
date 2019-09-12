@@ -170,7 +170,8 @@ border:0px;}
   </div>
 </div>
 </header>
-
+ <%try{
+	 ArrayList<ArrayList> issueList =  (ArrayList)request.getAttribute("list"); %>
 <br><br>
 <form action="/editissue.do" name="issueKey">
 <div class="RNNXgb" jsname="RNNXgb">
@@ -189,6 +190,7 @@ jsaction="paste:puy29d" placeholder="Enter The Issue Key to Edit" title="Search"
 
 <h1 style="text-align: center; color: black;
   text-shadow: 2px 2px 4px #000000;">Jira Requests List</h1>
+ 
 <table align=center class="table" id="customers">
   <thead>
     <tr>
@@ -200,7 +202,7 @@ jsaction="paste:puy29d" placeholder="Enter The Issue Key to Edit" title="Search"
     </tr>
   </thead>
   <tbody>
-<% ArrayList<ArrayList> issueList =  (ArrayList)request.getAttribute("list"); 
+<% 
 Iterator issueKey=issueList.get(0).iterator();	
 ArrayList<String> summary =issueList.get(1);
 ArrayList<String> status = issueList.get(3);
@@ -222,6 +224,10 @@ while(issueKey.hasNext()){%>
   </tbody>
 </table>
 </form>
+<%}catch(Exception e){
+%><p>Error occured</p>
+<a href="/logout.do">Click here to go to login page</a>
+<%	}%>
 <footer class="container">
       <p style="text-align:center;">&copy;CRG Solutions Pvt Ltd</p>
     </footer>

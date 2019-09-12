@@ -17,19 +17,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/*
+ * This class gets the list of project the user has access to in jira*/
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/searchproject.do")
 public class SearchProject extends TestUserValidator {
 
-    public static void main(String[] args) {
+  /*  public static void main(String[] args) {
     	System.out.println("get going");
 		try{
 			getProject();
 		}catch(Exception e) {
 			
 		}
-	}
+	}*/
+	/*
+	 * This Method will returns list of projects to web page/jsp file*/
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws IOException, ServletException {
@@ -37,11 +40,8 @@ public class SearchProject extends TestUserValidator {
 		request.setAttribute("list",list);
 		request.getRequestDispatcher("/WEB-INF/views/projectsearch.jsp").forward(request,response);
 	}
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-			throws IOException, ServletException {
-		
-	}
+	/*
+	 * This Method will connect to jira and returns list of projects*/
 	public static ArrayList<String> getProject() {
 		try {
 	        // Construct the JRJC client

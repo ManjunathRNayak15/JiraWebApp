@@ -16,27 +16,14 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/*
+ * This class will return the list of issues with details in a project*/
 @WebServlet(urlPatterns = "/searchissue.do")
 public class SearchIssues extends SearchProject {
 
-    public static void main(String[] args) {
-    	/*try {
-    		System.out.println("hey hey hey");
-			ArrayList<String> list = searchResult("project=RAP");
-			Iterator it = list.iterator();
-			while(it.hasNext()) {
-				System.out.println(it.next());
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}*/
-	}
-    
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-			throws IOException, ServletException {
-	}
+	/*
+	 * This Method will get the project name and issue state from jsp/web page and forms 
+	 * a JQL and returns list of issues with details to the web page*/
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws IOException, ServletException {
@@ -55,6 +42,8 @@ public class SearchIssues extends SearchProject {
 			request.setAttribute("list",list);
 			request.getRequestDispatcher("/WEB-INF/views/issuesearch.jsp").forward(request,response);
 	}
+	/*
+	 * This Method will performs jql search and returns the issues*/
 	public static  ArrayList<ArrayList> searchResult(String jql) {
 		ArrayList<ArrayList> list = new ArrayList<ArrayList>();
         try {   

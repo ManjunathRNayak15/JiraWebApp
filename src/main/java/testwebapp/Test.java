@@ -12,7 +12,6 @@ public class Test extends SubmitEdits {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws IOException, ServletException {
-		System.out.println("voldamort");
 		request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request,response);
 		}
 	@Override

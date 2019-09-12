@@ -13,7 +13,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-
+/*This class is used for storing the attachment from web page
+ * This will store the attachments in a defined UPLOAD_DIRECTORY*/
 @WebServlet(urlPatterns = "/uploadfile.do")
 public class FileUploader extends SubmitEdits {
 

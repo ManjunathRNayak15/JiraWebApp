@@ -74,7 +74,7 @@
 </div>
 </header>
 <br>
-<div style=text-align:center><h3>From the below drop-down tabs choose what <b>Project</b> will include the list
+<div style=text-align:center><h3>From the below drop-down tabs choose which <b>Project</b> will include the list
 of issues to <b>Read</b>.</h3></div>
 <div style="text-align:center">
 <form action="/searchissue.do" method="post">
@@ -111,7 +111,6 @@ if(request.getAttribute("list") != null){  // Null check for the object
  <button type="submit" href= "/searchissue.do">Search</button>
 </form>
 </div>
-<div class="text-font"><p></p></div>
 </body>
 <footer class="container">
       <p style="text-align:center;">&copy;CRG Solutions Pvt Ltd</p>

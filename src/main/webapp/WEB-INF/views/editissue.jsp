@@ -89,6 +89,7 @@ width:100%}
   </div>
 </div>
 </header>
+<%try{ %>
 <%ArrayList<String> issueDetails=(ArrayList)request.getAttribute("issueDetails");
 String summary = issueDetails.get(1); %>
 
@@ -103,9 +104,10 @@ String summary = issueDetails.get(1); %>
 	<td ><textarea name="comment" placeholder="Add your comment here"></textarea></td></tr>  
 </table>
 <div style="text-align:right;" ><button type="submit" style="background-color:blue; border-radius: 14px;">
-<h4 style="color:white">Submit</h4></button></div>
+<h4 style="color:white" onclick="alert('Issue will be Updated')">Submit</h4></button></div>
 </div>
 </form>
+
 <div>
             <h3> Choose File to Upload in Server </h3>
             <form action="uploadfile.do" method="post" enctype="multipart/form-data">
@@ -113,6 +115,10 @@ String summary = issueDetails.get(1); %>
                 <input type="submit" value="upload" />
             </form>          
 </div>
+<%}catch(Exception e){
+%><p>Error occured</p>
+<a href="/logout.do">Click here to go to login page</a>
+<%	}%>
 <footer class="container">
       <p style="text-align:center;">&copy;CRG Solutions Pvt Ltd</p>
     </footer>

@@ -18,7 +18,8 @@ import com.atlassian.jira.rest.client.api.domain.input.IssueInput;
 import com.atlassian.jira.rest.client.api.domain.input.IssueInputBuilder;
 import com.atlassian.jira.rest.client.auth.BasicHttpAuthenticationHandler;
 import com.atlassian.jira.rest.client.internal.async.AsynchronousJiraRestClientFactory;
-
+/*
+ * This Class is to update the issue with respective data from web page*/
 @WebServlet(urlPatterns = "/submitedits.do")
 public class SubmitEdits extends ModifyIssue {
 	@Override
@@ -26,6 +27,7 @@ public class SubmitEdits extends ModifyIssue {
 			throws IOException, ServletException {
 		
 		}
+	/*This method will get the data from jsp(or)web page*/
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws IOException, ServletException {
@@ -35,9 +37,13 @@ public class SubmitEdits extends ModifyIssue {
 		String key =(String) request.getParameter("key");
 		String comment = (String) request.getParameter("comment");
 		modify(key,summary,description,comment);
+		String successMessage = "Issue Updated Successfully";
+		request.setAttribute("successMessage", successMessage);
 		request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request,response);
 		
 	}
+	/*
+	 * This Method will connect to Jira and update the issue with the given data*/
 	void modify(String issueKey,String sum, String desc, String comment){
 		System.setProperty("javax.net.ssl.trustStore", "C:/Demo/myTrustStore");      
 		String url =TestUserValidator.url;
@@ -59,13 +65,18 @@ public class SubmitEdits extends ModifyIssue {
 		IssueInput issue = iib.build();
    	 	issueClient.updateIssue(issueKey, issue).claim();
    	 	Issue iss = issueClient.getIssue(issueKey).claim();
-   	 	issueClient.addComment( iss.getCommentsUri(), Comment.valueOf(comment) ).claim();
-   	 //	issueClient.addAttachment( iss.getAttachmentsUri(), is, "AScreenshot123.png");
+   	 	if(comment.equals("")) {
    	 	System.out.println(iss.getSummary());
+   	 	}else {
+   	 	issueClient.addComment( iss.getCommentsUri(), Comment.valueOf(comment) ).claim();
+   	 	}
+   	 //	issueClient.addAttachment( iss.getAttachmentsUri(), is, "AScreenshot123.png");
 		}catch(Exception e){
 			System.out.println("Exception occured while updating");
 		}
 	}
+	/*
+	 * This Method will returns the issue type Id from issue key*/
 	private long getIssueTypeId(String issueKey) {
 		System.setProperty("javax.net.ssl.trustStore", "C:/Demo/myTrustStore");      
         String url =TestUserValidator.url;
@@ -81,6 +92,8 @@ public class SubmitEdits extends ModifyIssue {
 		System.out.println(issueTypeId);
 		return issueTypeId;
 	}
+	/*
+	 * This Method will returns the project Id from issue key*/
 	private String getProjectKey(String issueKey) {
 		char c = 0;
 		String projectKey = "";
